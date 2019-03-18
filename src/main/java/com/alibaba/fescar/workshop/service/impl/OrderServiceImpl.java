@@ -32,6 +32,9 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
+/**
+ * The type Order service.
+ */
 public class OrderServiceImpl implements OrderService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderService.class);

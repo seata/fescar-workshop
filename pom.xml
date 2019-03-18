@@ -9,6 +9,8 @@
     <modelVersion>4.0.0</modelVersion>
     <name>fescar-workshop ${project.version}</name>
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <fescar.version>0.3.1</fescar.version>
         <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
         <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
@@ -75,6 +77,15 @@
                 <version>2.8.2</version>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
         </plugins>

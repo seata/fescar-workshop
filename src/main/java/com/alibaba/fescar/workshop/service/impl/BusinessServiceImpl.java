@@ -25,6 +25,9 @@ import com.alibaba.fescar.workshop.service.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The type Business service.
+ */
 public class BusinessServiceImpl implements BusinessService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BusinessService.class);

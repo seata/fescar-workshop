@@ -23,6 +23,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+/**
+ * The type Storage service.
+ */
 public class StorageServiceImpl implements StorageService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StorageService.class);
