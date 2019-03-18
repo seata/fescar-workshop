@@ -18,6 +18,8 @@ package com.alibaba.fescar.workshop.service;
 
 /**
  * The interface Storage service.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public interface StorageService {
 

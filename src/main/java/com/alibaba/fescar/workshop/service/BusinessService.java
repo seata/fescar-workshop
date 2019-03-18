@@ -18,6 +18,8 @@ package com.alibaba.fescar.workshop.service;
 
 /**
  * The interface Business service.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public interface BusinessService {
 

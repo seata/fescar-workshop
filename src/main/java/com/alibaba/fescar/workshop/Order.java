@@ -20,6 +20,8 @@ import java.io.Serializable;
 
 /**
  * The type Order.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public class Order implements Serializable {
     /**

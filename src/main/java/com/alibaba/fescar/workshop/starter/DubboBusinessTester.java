@@ -22,6 +22,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * The type Dubbo business tester.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public class DubboBusinessTester {
     /**

@@ -23,6 +23,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * The type Dubbo account service starter.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public class DubboAccountServiceStarter {
     /**
