@@ -25,6 +25,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * The type Storage service.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public class StorageServiceImpl implements StorageService {
 

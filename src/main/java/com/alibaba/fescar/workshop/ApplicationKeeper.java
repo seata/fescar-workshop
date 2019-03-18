@@ -25,6 +25,8 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 /**
  * The type Application keeper.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public class ApplicationKeeper {
 

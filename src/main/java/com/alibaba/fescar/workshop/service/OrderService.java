@@ -20,6 +20,8 @@ import com.alibaba.fescar.workshop.Order;
 
 /**
  * The interface Order service.
+ *
+ * @author jimin.jm @alibaba-inc.com
  */
 public interface OrderService {
     /**
