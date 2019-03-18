@@ -82,7 +82,7 @@ jdbc.order.driver=com.mysql.jdbc.Driver
 #### Step 2 创建 undo_log（用于Fescar AT 模式）表和相关业务表   
 
 
-相关建表脚本可在 [resources/sql/](https://github.com/fescar-group/fescar-workshop/tree/src/main/resources/sql) 下获取，在相应数据库中执行 [dubbo_biz.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/dubbo_biz.sql) 中的业务建表脚本，在每个数据库执行 [undo_log.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/undo_log.sql) 建表脚本。
+相关建表脚本可在 [resources/sql/](https://github.com/fescar-group/fescar-workshop/tree/master/src/main/resources/sql) 下获取，在相应数据库中执行 [dubbo_biz.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/dubbo_biz.sql) 中的业务建表脚本，在每个数据库执行 [undo_log.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/undo_log.sql) 建表脚本。
 
 ```sql
 -- 注意此处0.3.0+ 增加唯一索引 ux_undo_log
