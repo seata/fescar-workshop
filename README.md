@@ -82,7 +82,7 @@ jdbc.order.driver=com.mysql.jdbc.Driver
 #### Step 2 创建 undo_log（用于Fescar AT 模式）表和相关业务表   
 
 
-相关建表脚本可在 [resources/sql/](https://github.com/fescar-group/fescar-workshop/tree/nacos/src/main/resources/sql) 下获取，在相应数据库中执行 [dubbo_biz.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/dubbo_biz.sql) 中的业务建表脚本，在每个数据库执行 [undo_log.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/undo_log.sql) 建表脚本。
+相关建表脚本可在 [resources/sql/](https://github.com/fescar-group/fescar-workshop/tree/src/main/resources/sql) 下获取，在相应数据库中执行 [dubbo_biz.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/dubbo_biz.sql) 中的业务建表脚本，在每个数据库执行 [undo_log.sql](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/sql/undo_log.sql) 建表脚本。
 
 ```sql
 -- 注意此处0.3.0+ 增加唯一索引 ux_undo_log
@@ -330,16 +330,16 @@ sh fescar-server.sh 8091 /home/admin/fescar/data/
 
 - 修改业务客户端发现注册方式为 nacos   
 同Step 7 中[修改 Fescar-server 服务注册方式为 nacos] 步骤
-- 启动 [DubboAccountServiceStarter](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/samples/nacos/starter/DubboAccountServiceStarter.java)
-- 启动 [DubboOrderServiceStarter](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/samples/nacos/starter/DubboOrderServiceStarter.java)
-- 启动 [DubboStorageServiceStarter](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/samples/nacos/starter/DubboStorageServiceStarter.java)
+- 启动 [DubboAccountServiceStarter](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/workshop/starter/DubboAccountServiceStarter.java)
+- 启动 [DubboOrderServiceStarter](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/workshop/starter/DubboOrderServiceStarter.java)
+- 启动 [DubboStorageServiceStarter](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/workshop/starter/DubboStorageServiceStarter.java)
 
 启动完成可在 Nacos 控制台服务列表 看到启动完成的三个 provider
 
 <img src="https://github.com/fescar-group/fescar-samples/blob/master/doc/img/nacos-3.png"  height="300" width="800">
 
 
-- 启动 [DubboBusinessTester](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/samples/nacos/starter/DubboBusinessTester.java) 进行测试
+- 启动 [DubboBusinessTester](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/java/com/alibaba/fescar/workshop/starter/DubboBusinessTester.java) 进行测试
 
 **注意:** 在标注 @GlobalTransactional 注解方法内部显示的抛出异常才会进行事务的回滚。整个 Dubbo 服务调用链路只需要在事务最开始发起方的 service 方法标注注解即可。
 
