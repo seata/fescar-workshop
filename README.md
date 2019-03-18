@@ -60,7 +60,7 @@ public interface AccountService {
 
 #### Step 1 初始化 MySQL 数据库（需要InnoDB 存储引擎）
 
-在 [resources/jdbc.properties](https://github.com/fescar-group/fescar-samples/blob/master/nacos/src/main/resources/jdbc.properties) 修改StorageService、OrderService、AccountService 对应的连接信息。
+在 [resources/jdbc.properties](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/jdbc.properties) 修改StorageService、OrderService、AccountService 对应的连接信息。
 
 ```properties
 jdbc.account.url=jdbc:mysql://xxxx/xxxx
@@ -137,7 +137,7 @@ CREATE TABLE `account_tbl` (
 
 ```xml
       <properties>
-          <fescar.version>0.2.1</fescar.version>
+          <fescar.version>0.3.1</fescar.version>
           <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
           <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
        </properties>
