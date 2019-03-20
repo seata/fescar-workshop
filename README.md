@@ -234,6 +234,8 @@ timeoutMills 为事务的总体超时时间默认60s，name 为事务方法签�
 
 - 运行 Nacos-server
 
+- curl -X PUT 'localhost:8848/nacos/v1/ns/operator/switches?entry=serverMode&value=AP'
+
 **Linux/Unix/Mac**
 
 ```bash
