@@ -234,6 +234,7 @@ timeoutMills 为事务的总体超时时间默认60s，name 为事务方法签�
 
 - 运行 Nacos-server
 
+
 **Linux/Unix/Mac**
 
 ```bash
@@ -253,6 +254,8 @@ cmd startup.cmd -m standalone
 #### Step 7 启动 Fescar-Server
 
 - 下载 Fescar-Server 最新 [release](https://github.com/alibaba/fescar/releases) 包并解压
+
+- curl -X PUT 'localhost:8848/nacos/v1/ns/operator/switches?entry=serverMode&value=AP'
 
 - 初始化 Fescar 配置
 
