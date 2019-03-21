@@ -1,4 +1,4 @@
-# 基于 Fescar 解决微服务架构下数据一致性的实践
+# 基于 Fescar 微服务架构下数据一致性的实践
 
 [Fescar](https://github.com/alibaba/fescar) 是一款开源的分布式事务解决方案，提供高性能和简单易用的分布式事务服务。   
   
