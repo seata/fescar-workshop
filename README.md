@@ -60,6 +60,10 @@ public interface AccountService {
 
 #### Step 1 初始化 MySQL 数据库（需要InnoDB 存储引擎）
 
+创建数据库（以个人名字命名）；
+
+Create database xxx;
+
 在 [resources/jdbc.properties](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/jdbc.properties) 修改StorageService、OrderService、AccountService 对应的连接信息。
 
 ```properties
