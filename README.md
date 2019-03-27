@@ -1,4 +1,4 @@
-# 基于 Fescar 解决微服务架构下数据一致性的实践
+# 基于 Fescar 微服务架构下数据一致性的实践
 
 [Fescar](https://github.com/alibaba/fescar) 是一款开源的分布式事务解决方案，提供高性能和简单易用的分布式事务服务。   
   
@@ -59,6 +59,10 @@ public interface AccountService {
 
 
 #### Step 1 初始化 MySQL 数据库（需要InnoDB 存储引擎）
+
+创建数据库（以个人名字命名）；
+
+Create database xxx;
 
 在 [resources/jdbc.properties](https://github.com/fescar-group/fescar-workshop/blob/master/src/main/resources/jdbc.properties) 修改StorageService、OrderService、AccountService 对应的连接信息。
 
@@ -137,7 +141,7 @@ CREATE TABLE `account_tbl` (
 
 ```xml
       <properties>
-          <fescar.version>0.3.1</fescar.version>
+          <fescar.version>0.4.0</fescar.version>
           <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
           <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
        </properties>
