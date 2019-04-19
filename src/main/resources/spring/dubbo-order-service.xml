@@ -71,7 +71,7 @@
         <property name="accountService" ref="accountService"/>
     </bean>
 
-    <bean class="com.alibaba.fescar.spring.annotation.GlobalTransactionScanner">
+    <bean class="io.seata.spring.annotation.GlobalTransactionScanner">
         <constructor-arg value="dubbo-demo-order-service"/>
         <constructor-arg value="my_test_tx_group"/>
     </bean>

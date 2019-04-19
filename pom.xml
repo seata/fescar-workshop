@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <fescar.version>0.4.0</fescar.version>
+        <seata.version>0.5.0-SNAPSHOT</seata.version>
         <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
         <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
         <spring-context-support.version>1.0.2</spring-context-support.version>
@@ -21,20 +21,30 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.alibaba.fescar</groupId>
-            <artifactId>fescar-spring</artifactId>
-            <version>${fescar.version}</version>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring</artifactId>
+            <version>${seata.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.fescar</groupId>
-            <artifactId>fescar-dubbo-alibaba</artifactId>
-            <version>${fescar.version}</version>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-dubbo-alibaba</artifactId>
+            <version>${seata.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>dubbo</artifactId>
                     <groupId>org.apache.dubbo</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-discovery-all</artifactId>
+            <version>${seata.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-config-all</artifactId>
+            <version>${seata.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -67,6 +77,40 @@
             <version>${logback.version}</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>spring-snapshot</id>
+            <name>Spring Snapshot Repository</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mvnrepository</id>
+            <name>mvnrepository</name>
+            <url>http://www.mvnrepository.com/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <name>sonatype</name>
+            <url>http://oss.sonatype.org/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
