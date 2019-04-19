@@ -46,7 +46,7 @@
         <property name="filters" value="mergeStat"/>
     </bean>
 
-    <bean id="storageDataSourceProxy" class="com.alibaba.fescar.rm.datasource.DataSourceProxy">
+    <bean id="storageDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">
         <constructor-arg ref="storageDataSource"/>
     </bean>
 
