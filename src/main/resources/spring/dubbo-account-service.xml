@@ -46,7 +46,7 @@
         <property name="filters" value="mergeStat"/>
     </bean>
 
-    <bean id="accountDataSourceProxy" class="com.alibaba.fescar.rm.datasource.DataSourceProxy">
+    <bean id="accountDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">
         <constructor-arg ref="accountDataSource"/>
     </bean>
 
@@ -67,7 +67,7 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
-    <bean class="com.alibaba.fescar.spring.annotation.GlobalTransactionScanner">
+    <bean class="io.seata.spring.annotation.GlobalTransactionScanner">
         <constructor-arg value="dubbo-demo-account-service"/>
         <constructor-arg value="my_test_tx_group"/>
     </bean>

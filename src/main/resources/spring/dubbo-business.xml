@@ -36,7 +36,7 @@
         <property name="storageService" ref="storageService"/>
     </bean>
 
-    <bean class="com.alibaba.fescar.spring.annotation.GlobalTransactionScanner">
+    <bean class="io.seata.spring.annotation.GlobalTransactionScanner">
         <constructor-arg value="dubbo-demo-app"/>
         <constructor-arg value="my_test_tx_group"/>
     </bean>
