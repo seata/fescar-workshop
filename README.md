@@ -363,7 +363,7 @@ cmd seata-server.bat $LISTEN_PORT $PATH_FOR_PERSISTENT_DATA $IP(此参数可选)
 
 **$LISTEN_PORT**: seata-Server 服务端口      
 **$PATH_FOR_PERSISTENT_DATA**: 事务操作记录文件存储路径(已存在路径)   
-**$IP(可选参数)**: 用于多 IP 环境下指定 Fescar-Server 注册服务的IP      
+**$IP(可选参数)**: 用于多 IP 环境下指定 seata-Server 注册服务的IP      
 
 **eg**:
 sh seata-server.sh 8091 file
