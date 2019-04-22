@@ -136,25 +136,25 @@ CREATE TABLE `account_tbl` (
 ```
 **说明:** 需要保证每个物理库都包含 undo_log 表，此处可使用一个物理库来表示上述三个微服务对应的独立逻辑库。
 
-#### Step 3 引入 Fescar、Dubbo 和 Nacos 相关 POM 依赖
+#### Step 3 引入 Seata、Dubbo 和 Nacos 相关 POM 依赖
 
 
 ```xml
       <properties>
-          <fescar.version>0.4.0</fescar.version>
+          <seata.version>0.4.0</seata.version>
           <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
           <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
        </properties>
         
        <dependency>
-           <groupId>com.alibaba.fescar</groupId>
-           <artifactId>fescar-spring</artifactId>
-           <version>${fescar.version}</version>
+           <groupId>io.seata</groupId>
+           <artifactId>seata-spring</artifactId>
+           <version>${seata.version}</version>
        </dependency>
        <dependency>
-           <groupId>com.alibaba.fescar</groupId>
-           <artifactId>fescar-dubbo-alibaba</artifactId>
-           <version>${fescar.version}</version>
+           <groupId>io.seata</groupId>
+           <artifactId>seata-dubbo-alibaba</artifactId>
+           <version>${seata.version}</version>
            <exclusions>
                <exclusion>
                    <artifactId>dubbo</artifactId>
@@ -173,7 +173,7 @@ CREATE TABLE `account_tbl` (
            <version>${dubbo.registry.nacos.version}</version>
        </dependency>
 ```
-**说明:** 由于当前 apache-dubbo 与 dubbo-registry-nacos jar存在兼容性问题，需要排除 fescar-dubbo 中的 apache.dubbo 依赖并手动引入 alibaba-dubbo，后续 apache-dubbo(2.7.1+) 将兼容 dubbo-registry-nacos。在Fescar 中 fescar-dubbo jar 支持 apache.dubbo，fescar-dubbo-alibaba jar 支持 alibaba-dubbo。
+**说明:** 由于当前 apache-dubbo 与 dubbo-registry-nacos jar存在兼容性问题，需要排除 seata-dubbo 中的 apache.dubbo 依赖并手动引入 alibaba-dubbo，后续 apache-dubbo(2.7.1+) 将兼容 seata-registry-nacos。在Fescar 中 seata-dubbo jar 支持 apache.dubbo，seata-dubbo-alibaba jar 支持 alibaba-dubbo。
 
 
 #### Step 4 微服务 Provider Spring配置
