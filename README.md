@@ -141,7 +141,7 @@ CREATE TABLE `account_tbl` (
 
 ```xml
       <properties>
-          <seata.version>0.4.0</seata.version>
+          <seata.version>0.5.0</seata.version>
           <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
           <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
        </properties>
@@ -361,18 +361,17 @@ config {
 **Linux/Unix/Mac**
 
 ```bash
-sh seata-server.sh $LISTEN_PORT $PATH_FOR_PERSISTENT_DATA $IP(此参数可选)
+sh seata-server.sh $LISTEN_PORT file $IP(此参数可选)
 ```
 
 **Windows**
 
 ```bash
-cmd seata-server.bat $LISTEN_PORT $PATH_FOR_PERSISTENT_DATA $IP(此参数可选)
+cmd seata-server.bat $LISTEN_PORT file $IP(此参数可选)
 
 ```
 
 **$LISTEN_PORT**: seata-Server 服务端口      
-**$PATH_FOR_PERSISTENT_DATA**: 事务操作记录文件存储路径(已存在路径)   
 **$IP(可选参数)**: 用于多 IP 环境下指定 seata-Server 注册服务的IP      
 
 **eg**:
