@@ -172,6 +172,16 @@ CREATE TABLE `account_tbl` (
            <artifactId>dubbo-registry-nacos</artifactId>
            <version>${dubbo.registry.nacos.version}</version>
        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-discovery-nacos</artifactId>
+            <version>${seata.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-config-nacos</artifactId>
+            <version>${seata.version}</version>
+        </dependency>
 ```
 **说明:** 由于当前 apache-dubbo 与 dubbo-registry-nacos jar存在兼容性问题，需要排除 seata-dubbo 中的 apache.dubbo 依赖并手动引入 alibaba-dubbo，后续 apache-dubbo(2.7.1+) 将兼容 seata-registry-nacos。在 Seata 中 seata-dubbo jar 支持 apache.dubbo，seata-dubbo-alibaba jar 支持 alibaba-dubbo。
 
