@@ -17,6 +17,8 @@
 package com.alibaba.fescar.workshop.starter;
 
 import com.alibaba.fescar.workshop.ApplicationKeeper;
+import com.alibaba.fescar.workshop.DBType;
+import com.alibaba.fescar.workshop.EnvContext;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,7 +40,12 @@ public class DubboAccountServiceStarter {
         accountContext.getBean("service");
         JdbcTemplate accountJdbcTemplate = (JdbcTemplate)accountContext.getBean("jdbcTemplate");
         accountJdbcTemplate.update("delete from account_tbl where user_id = 'U100001'");
-        accountJdbcTemplate.update("insert into account_tbl(user_id, money) values ('U100001', 999)");
+        if (EnvContext.dbType == DBType.MYSQL) {
+            accountJdbcTemplate.update("insert into account_tbl(user_id, money) values ('U100001', 999)");
+        } else if (EnvContext.dbType == DBType.ORACLE) {
+            accountJdbcTemplate.update(
+                "insert into account_tbl(id,user_id, money) values (ACCOUNT_TBL_SEQ.nextval,'U100001', 999)");
+        }
 
         new ApplicationKeeper(accountContext).keep();
     }

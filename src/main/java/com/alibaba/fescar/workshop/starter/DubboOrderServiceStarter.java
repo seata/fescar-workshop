@@ -19,6 +19,7 @@ package com.alibaba.fescar.workshop.starter;
 import com.alibaba.fescar.workshop.ApplicationKeeper;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * The type Dubbo order service starter.
@@ -38,6 +39,8 @@ public class DubboOrderServiceStarter {
         ClassPathXmlApplicationContext orderContext = new ClassPathXmlApplicationContext(
             new String[] {"spring/dubbo-order-service.xml"});
         orderContext.getBean("service");
+        JdbcTemplate orderJdbcTemplate = (JdbcTemplate)orderContext.getBean("jdbcTemplate");
+        orderJdbcTemplate.update("delete from order_tbl");
         new ApplicationKeeper(orderContext).keep();
     }
 }

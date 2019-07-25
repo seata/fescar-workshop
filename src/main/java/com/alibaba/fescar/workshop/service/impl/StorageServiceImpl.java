@@ -49,8 +49,8 @@ public class StorageServiceImpl implements StorageService {
         LOGGER.info("Deducting inventory SQL: update storage_tbl set count = count - {} where commodity_code = {}",
             count, commodityCode);
 
-        jdbcTemplate.update("update storage_tbl set count = count - ? where commodity_code = ?",
-            new Object[] {count, commodityCode});
+        jdbcTemplate.update("update STORAGE_TBL set count = count - ? where commodity_code = ?",
+            count, commodityCode);
         LOGGER.info("Storage Service End ... ");
 
     }
