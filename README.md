@@ -141,7 +141,7 @@ CREATE TABLE `account_tbl` (
 
 ```xml
       <properties>
-          <seata.version>0.5.0</seata.version>
+          <seata.version>0.5.1</seata.version>
           <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
           <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
        </properties>
