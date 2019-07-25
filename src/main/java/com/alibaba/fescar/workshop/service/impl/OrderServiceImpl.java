@@ -84,6 +84,7 @@ public class OrderServiceImpl implements OrderService {
                     return pst;
                 }
             }, keyHolder);
+            order.id = keyHolder.getKey().longValue();
         } else if (EnvContext.dbType == DBType.ORACLE) {
 
             String nextID = jdbcTemplate.queryForObject("select ORDER_TBL_SEQ.nextval from dual", String.class);
@@ -92,7 +93,7 @@ public class OrderServiceImpl implements OrderService {
                 @Override
                 public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
                     PreparedStatement pst = con.prepareStatement(
-                        "insert into order_tbl (id, user_id, commodity_code, count, money) values (?,?, ?, ?, ?)",
+                        "insert into ORDER_TBL (id, user_id, commodity_code, count, money) values (?,?, ?, ?, ?)",
                         PreparedStatement.RETURN_GENERATED_KEYS);
                     pst.setObject(1, nextID);
                     pst.setObject(2, order.userId);
@@ -102,9 +103,8 @@ public class OrderServiceImpl implements OrderService {
                     return pst;
                 }
             }, keyHolder);
+            order.id = Long.parseLong(nextID);
         }
-
-        order.id = keyHolder.getKey().longValue();
 
         LOGGER.info("Order Service End ... Created " + order);
 
