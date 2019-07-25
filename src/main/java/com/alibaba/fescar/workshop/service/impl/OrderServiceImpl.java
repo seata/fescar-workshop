@@ -20,6 +20,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.alibaba.fescar.workshop.DBType;
+import com.alibaba.fescar.workshop.EnvContext;
 import com.alibaba.fescar.workshop.Order;
 import com.alibaba.fescar.workshop.service.AccountService;
 import com.alibaba.fescar.workshop.service.OrderService;
@@ -67,20 +69,40 @@ public class OrderServiceImpl implements OrderService {
             "Order Service SQL: insert into order_tbl (user_id, commodity_code, count, money) values ({}, {}, {}, {})",
             userId, commodityCode, orderCount, orderMoney);
 
-        jdbcTemplate.update(new PreparedStatementCreator() {
+        if (EnvContext.dbType == DBType.MYSQL) {
+            jdbcTemplate.update(new PreparedStatementCreator() {
 
-            @Override
-            public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-                PreparedStatement pst = con.prepareStatement(
-                    "insert into order_tbl (user_id, commodity_code, count, money) values (?, ?, ?, ?)",
-                    PreparedStatement.RETURN_GENERATED_KEYS);
-                pst.setObject(1, order.userId);
-                pst.setObject(2, order.commodityCode);
-                pst.setObject(3, order.count);
-                pst.setObject(4, order.money);
-                return pst;
-            }
-        }, keyHolder);
+                @Override
+                public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                    PreparedStatement pst = con.prepareStatement(
+                        "insert into order_tbl (user_id, commodity_code, count, money) values (?, ?, ?, ?)",
+                        PreparedStatement.RETURN_GENERATED_KEYS);
+                    pst.setObject(1, order.userId);
+                    pst.setObject(2, order.commodityCode);
+                    pst.setObject(3, order.count);
+                    pst.setObject(4, order.money);
+                    return pst;
+                }
+            }, keyHolder);
+        } else if (EnvContext.dbType == DBType.ORACLE) {
+
+            String nextID = jdbcTemplate.queryForObject("select ORDER_TBL_SEQ.nextval from dual", String.class);
+            jdbcTemplate.update(new PreparedStatementCreator() {
+
+                @Override
+                public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                    PreparedStatement pst = con.prepareStatement(
+                        "insert into order_tbl (id, user_id, commodity_code, count, money) values (?,?, ?, ?, ?)",
+                        PreparedStatement.RETURN_GENERATED_KEYS);
+                    pst.setObject(1, nextID);
+                    pst.setObject(2, order.userId);
+                    pst.setObject(3, order.commodityCode);
+                    pst.setObject(4, order.count);
+                    pst.setObject(5, order.money);
+                    return pst;
+                }
+            }, keyHolder);
+        }
 
         order.id = keyHolder.getKey().longValue();
 

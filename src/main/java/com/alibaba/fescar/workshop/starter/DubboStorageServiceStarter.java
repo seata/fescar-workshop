@@ -17,6 +17,8 @@
 package com.alibaba.fescar.workshop.starter;
 
 import com.alibaba.fescar.workshop.ApplicationKeeper;
+import com.alibaba.fescar.workshop.DBType;
+import com.alibaba.fescar.workshop.EnvContext;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,7 +40,12 @@ public class DubboStorageServiceStarter {
         storageContext.getBean("service");
         JdbcTemplate storageJdbcTemplate = (JdbcTemplate)storageContext.getBean("jdbcTemplate");
         storageJdbcTemplate.update("delete from storage_tbl where commodity_code = 'C00321'");
-        storageJdbcTemplate.update("insert into storage_tbl(commodity_code, count) values ('C00321', 100)");
+        if (EnvContext.dbType == DBType.MYSQL) {
+            storageJdbcTemplate.update("insert into storage_tbl(commodity_code, count) values ('C00321', 100)");
+        } else if (EnvContext.dbType == DBType.ORACLE) {
+            storageJdbcTemplate.update(
+                "insert into storage_tbl(id,commodity_code, count) values (STORAGE_TBL_SEQ.nextval,'C00321', 100)");
+        }
         new ApplicationKeeper(storageContext).keep();
     }
 }
