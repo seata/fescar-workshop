@@ -28,7 +28,7 @@
     <!--support zk-->
     <!--<dubbo:registry address="zookeeper://localhost:2181" />-->
     <!--support nacos-->
-    <dubbo:registry address="nacos://127.0.0.1:8848"/>
+    <dubbo:registry address="nacos://39.106.140.159:8848"/>
 
     <dubbo:reference id="orderService" check="false" interface="com.alibaba.fescar.workshop.service.OrderService"/>
     <dubbo:reference id="storageService" check="false" interface="com.alibaba.fescar.workshop.service.StorageService"/>
