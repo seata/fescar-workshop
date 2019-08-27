@@ -6,5 +6,5 @@ package com.alibaba.fescar.workshop;
  */
 public class EnvContext {
 
-    public static DBType dbType = DBType.ORACLE;
+    public static DBType dbType = DBType.MYSQL;
 }
