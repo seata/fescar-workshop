@@ -287,7 +287,7 @@ registry {
 
   nacos {
     serverAddr = "localhost"
-    namespace = "public"
+    namespace = ""
     cluster = "default"
   }
 }
@@ -298,8 +298,7 @@ config {
 
   nacos {
     serverAddr = "localhost"
-    namespace = "public"
-    cluster = "default"
+    namespace = ""
   }
 }
 
