@@ -17,9 +17,13 @@
 
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="com.alibaba.fescar.workshop.*"/>
+    <!--<bean class="io.seata.spring.annotation.datasource.SeataDataSourceBeanPostProcessor">-->
+    <!--<constructor-arg value="false"></constructor-arg>-->
+    <!--</bean>-->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="classpath:jdbc.properties"/>
     </bean>
@@ -46,12 +50,12 @@
         <property name="filters" value="mergeStat"/>
     </bean>
 
-    <bean id="orderDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">
-        <constructor-arg ref="orderDataSource"/>
-    </bean>
+    <!--<bean id="orderDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">-->
+    <!--<constructor-arg ref="orderDataSource"/>-->
+    <!--</bean>-->
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="orderDataSourceProxy"/>
+        <property name="dataSource" ref="orderDataSource"/>
     </bean>
 
     <dubbo:application name="dubbo-demo-order-service">
