@@ -19,7 +19,6 @@ package com.alibaba.fescar.workshop.service.impl;
 import com.alibaba.fescar.workshop.service.StorageService;
 
 import io.seata.core.context.RootContext;
-import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -29,7 +28,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  *
  * @author jimin.jm @alibaba-inc.com
  */
-@EnableAutoDataSourceProxy(useJdkProxy = true)
+//@EnableAutoDataSourceProxy(useJdkProxy = true)
 public class StorageServiceImpl implements StorageService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StorageService.class);

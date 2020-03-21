@@ -50,12 +50,12 @@
         <property name="filters" value="mergeStat"/>
     </bean>
 
-    <!--<bean id="accountDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">-->
-    <!--<constructor-arg ref="accountDataSource"/>-->
-    <!--</bean>-->
+    <bean id="accountDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">
+        <constructor-arg ref="accountDataSource"/>
+    </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="accountDataSource"/>
+        <property name="dataSource" ref="accountDataSourceProxy"/>
     </bean>
 
     <dubbo:application name="dubbo-demo-account-service">

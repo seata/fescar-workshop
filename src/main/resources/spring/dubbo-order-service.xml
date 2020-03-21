@@ -50,12 +50,12 @@
         <property name="filters" value="mergeStat"/>
     </bean>
 
-    <!--<bean id="orderDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">-->
-    <!--<constructor-arg ref="orderDataSource"/>-->
-    <!--</bean>-->
+    <bean id="orderDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">
+        <constructor-arg ref="orderDataSource"/>
+    </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="orderDataSource"/>
+        <property name="dataSource" ref="orderDataSourceProxy"/>
     </bean>
 
     <dubbo:application name="dubbo-demo-order-service">
