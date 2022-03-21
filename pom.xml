@@ -12,7 +12,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <seata.version>1.1.0-SNAPSHOT</seata.version>
-        <dubbo.alibaba.version>2.6.5</dubbo.alibaba.version>
+        <dubbo.alibaba.version>2.6.9</dubbo.alibaba.version>
         <dubbo.registry.nacos.version>0.0.2</dubbo.registry.nacos.version>
         <spring-context-support.version>1.0.2</spring-context-support.version>
         <mysql-connector.version>5.1.31</mysql-connector.version>
